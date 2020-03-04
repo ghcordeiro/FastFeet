@@ -1,17 +1,24 @@
+import 'dotenv/config';
+
 import express from 'express';
+import routes from './routes';
+
+import './database';
 
 class App {
   constructor() {
     this.server = express();
 
     this.middlewares();
+    this.routes();
   }
 
   middlewares() {
     this.server.use(express.json());
-    this.server.use((req, res) => {
-      res.status(200).json({ message: 'Teste' });
-    });
+  }
+
+  routes() {
+    this.server.use(routes);
   }
 }
 
