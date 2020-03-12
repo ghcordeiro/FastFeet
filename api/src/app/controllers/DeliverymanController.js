@@ -29,10 +29,9 @@ class DeliverymanController {
       return res.status(400).json({ error: 'Deliveryman already exists.' });
     }
 
-    const { id, name, email } = await Deliveryman.create(req.body);
+    const { name, email } = await Deliveryman.create(req.body);
 
     return res.json({
-      id,
       name,
       email,
     });
